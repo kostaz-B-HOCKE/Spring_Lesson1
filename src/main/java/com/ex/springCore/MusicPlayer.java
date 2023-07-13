@@ -1,11 +1,10 @@
 package com.ex.springCore;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MusicPlayer {
-//    private List<Music> musicList = new ArrayList<>();
+    private List<Music> musicList = new ArrayList<>();
     private Music music;
 
     private String name;
@@ -13,13 +12,13 @@ public class MusicPlayer {
 
     private int count;
 
-//    public List<Music> getMusicList() {
-//        return musicList;
-//    }
-//
-//    public void setMusicList(List<Music> musicList) {
-//        this.musicList = musicList;
-//    }
+    public void printStart() {
+        System.out.println("Я родился! c кодом "  + this);
+    }
+
+    public void setMusiclist(List<Music> musicList) {
+        this.musicList = musicList;
+    }
 
     public int getCount() {
         return count;
@@ -55,6 +54,8 @@ public class MusicPlayer {
     public void setMusic(Music music) {
         this.music = music;
     }
+
+
 
     public void playSound() {
         System.out.println("Play: " + music.getSound());

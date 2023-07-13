@@ -7,10 +7,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    <context:property-placeholder location="classpath:musicPlayer.properties" />-->
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
 
-    <bean id="musicBean1"
-          class="com.ex.springCore.RockMusic" >
+    <bean id="musicBean"
+          class="com.ex.springCore.RockMusic">
     </bean>
 
     <bean id="musicBean2"
@@ -18,11 +18,15 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="com.ex.springCore.MusicPlayer">
-        <constructor-arg ref="musicBean" > </constructor-arg>
-        <property name="music" ref="musicBean1"/>
-<!--        <property name="count" ref="1"/>-->
-        <property name="name" value="Some name"/>
-        <property name="volume" value="2"/>
+          class="com.ex.springCore.MusicPlayer"
+          scope="prototype"
+          init-method="printStart"
+            destroy-method="">
+
+<!--        <constructor-arg ref="musicBean" > </constructor-arg>-->
+        <property name="music" ref="musicBean"/>
+        <property name="count" value="${musicPlayer.count}"/>
+        <property name="name" value="Soud name"/>
+        <property name="volume" value="5"/>
     </bean>
 </beans>
