@@ -7,26 +7,28 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties" />
+<!--    <context:property-placeholder location="classpath:musicPlayer.properties" />-->
+<!--    <bean id="musicBean"-->
+<!--          class="com.ex.springCore.RockMusic">-->
+<!--    </bean>-->
 
-    <bean id="musicBean"
-          class="com.ex.springCore.RockMusic">
-    </bean>
+<!--    <bean id="musicBean2"-->
+<!--          class="com.ex.springCore.ClassicMusic">-->
+<!--    </bean>-->
 
-    <bean id="musicBean2"
-          class="com.ex.springCore.ClassicMusic">
-    </bean>
+<!--    <bean id="musicPlayer"-->
+<!--          class="com.ex.springCore.MusicPlayer"-->
+<!--          scope="prototype"-->
+<!--          init-method="printStart"-->
+<!--            destroy-method="">-->
 
-    <bean id="musicPlayer"
-          class="com.ex.springCore.MusicPlayer"
-          scope="prototype"
-          init-method="printStart"
-            destroy-method="">
+<!--&lt;!&ndash;        <constructor-arg ref="musicBean" > </constructor-arg>&ndash;&gt;-->
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="count" value="${musicPlayer.count}"/>-->
+<!--        <property name="name" value="Soud name"/>-->
+<!--        <property name="volume" value="5"/>-->
+<!--    </bean>-->
+    <context:component-scan base-package="com.ex.springCore" />
 
-<!--        <constructor-arg ref="musicBean" > </constructor-arg>-->
-        <property name="music" ref="musicBean"/>
-        <property name="count" value="${musicPlayer.count}"/>
-        <property name="name" value="Soud name"/>
-        <property name="volume" value="5"/>
-    </bean>
 </beans>
+
