@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClassicMusic implements Music{
     public String getSound() {
-        return "Морда Моцарда";
+        return "Victory: Two Steps From Hell";
     }
 }
