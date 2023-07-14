@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
+
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
 //        MusicPlayer testBean = context.getBean("musicBean", MusicPlayer.class);
@@ -20,18 +21,11 @@ public class TestSpring {
 //        secondMusicPlayer.setCount(3);
 //        System.out.println("musicPlayer.getCount()); " + musicPlayer.getCount());
 
+        ClassicMusic classicMusicBean = context.getBean("classicMusic", ClassicMusic.class);
+        RockMusic rockMusicBean = context.getBean("rockMusic", RockMusic.class);
+        MusicPlayer musicPlayer = new MusicPlayer(classicMusicBean, rockMusicBean);
 
-        Music beemusicBean = context.getBean("classicMusic", Music.class);
-        MusicPlayer musicPlayer2 = new MusicPlayer(context.getBean("rockMusic", Music.class));
-        MusicPlayer musicPlayer = new MusicPlayer(beemusicBean);
         musicPlayer.playSound();
-        PlayList playList = new PlayList();
-        playList.addMusic(musicPlayer);
-        playList.addMusic(musicPlayer2);
-        System.out.println(444);
-        playList.playSound();
-        System.out.println(444);
-
 
         context.close();
     }
