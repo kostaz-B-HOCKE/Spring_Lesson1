@@ -28,7 +28,21 @@
 <!--        <property name="name" value="Soud name"/>-->
 <!--        <property name="volume" value="5"/>-->
 <!--    </bean>-->
+<!--    подключает возможность использовать контекст -->
+    <bean id="musicBean"
+          class="com.ex.springCore.ClassicMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getCla"
+    />
+
+
     <context:component-scan base-package="com.ex.springCore" />
+
+<!--    использование файла с константами-->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+
 
 </beans>
 
